@@ -8,10 +8,21 @@ class StringCleaner
   end
 
   def clean_string
-   puts read_file.gsub("\t\r", "").gsub("\n", "").split.join(" ")
+    header
+    puts read_file.gsub("\t\r", "").gsub("\n", "").split.join(" ")
+    closer
   end
 
   private
+
+  def header
+    puts ""
+    puts "--START OF FILE--"
+  end
+
+  def closer
+    puts "--END OF FILE--"
+  end
 
   def read_file
     File.read(file_path)
